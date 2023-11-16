@@ -1,0 +1,10 @@
+import { auth } from "../../middleware/authtication.js";
+import * as userController from "./controller/user.js";
+import { Router } from "express";
+const router = Router();
+router.put("/change",auth, userController.changePassword);
+router.put("/update",auth, userController.updateUser);
+router.delete("/delete", auth, userController.deleteUser);
+router.put("/soft",auth,userController.softDelete);
+router.put("/online",auth,userController.logout);
+export default router;
